@@ -1,0 +1,113 @@
+html {
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #f9fafe;
+  }
+}
+
+.courses {
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  color: #334155; /* Changed from #fff to a dark slate color */
+  text-align: center;
+}
+
+.courses h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: #2563eb; /* Changed to a darker blue for better contrast */
+  letter-spacing: 1px;
+}
+
+/* Grid Layout */
+.course-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Card Style Updated for Light Background --- */
+.course-card {
+  background: #ffffff; /* Changed from transparent to solid white */
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0; /* Changed from a light border to a subtle gray one */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Added a subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #475569; /* Changed from light gray to a readable dark gray */
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* backdrop-filter and -webkit-backdrop-filter properties removed as they are not needed */
+}
+
+.course-card:hover {
+  transform: translateY(-8px); /* Removed scale to keep it simple */
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1); /* Adjusted shadow for a lifting effect */
+}
+
+/* Course Thumbnail */
+.course-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+/* Title */
+.course-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1e293b; /* Changed from #f8fafc to a very dark blue/slate */
+}
+
+/* Instructor */
+.course-card p {
+  font-size: 0.9rem;
+  color: #475569; /* Changed from #cbd5e1 to a medium-dark gray */
+  margin: 0.3rem 0;
+}
+
+/* Description (limited words) */
+.course-card .desc {
+  font-size: 0.85rem;
+  color: #64748b; /* Changed from #94a3b8 to a softer dark gray */
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* Button */
+.common-btn {
+  margin-top: 1rem;
+  margin-left: 10px;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  color: #fff; /* This can remain white because the button background is dark */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.common-btn:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
+  transform: scale(1.05);
+}

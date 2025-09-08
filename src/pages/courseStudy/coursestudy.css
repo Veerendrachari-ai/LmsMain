@@ -1,0 +1,146 @@
+.course-study-page {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  font-family: "Poppins", sans-serif;
+  color: #333;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Left Section */
+.course-study-page img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-study-page h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #222;
+}
+
+.course-study-page h4 {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.course-study-page a {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.6rem;
+  background: #1976d2;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.3s ease-in-out;
+}
+
+.course-study-page a:hover {
+  background: #125aa0;
+}
+
+/* Sidebar Section */
+.course-study-page h5 {
+  background: #f9f9f9;
+  padding: 0.8rem 1rem;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 0.8rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.course-study-page h5 span {
+  font-weight: 600;
+  color: #222;
+}
+
+/* Icons for "By-" and "Duration-" */
+.course-study-page h5:nth-of-type(1)::before {
+  content: "👤";
+  font-size: 1rem;
+  color: #1976d2;
+}
+
+.course-study-page h5:nth-of-type(2)::before {
+  content: "⏱️";
+  font-size: 1rem;
+  color: #1976d2;
+}
+
+/* Course Info Scrollable Section */
+.course-info {
+  max-height: 250px;       /* adjust as needed */
+  overflow-y: auto;
+  padding-right: 0.8rem;
+  line-height: 1.6;
+  color: #444;
+  position: relative;
+}
+
+/* Hide scrollbar by default */
+.course-info::-webkit-scrollbar {
+  width: 8px;
+}
+
+.course-info::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.course-info::-webkit-scrollbar-thumb {
+  background: #1976d2;
+  border-radius: 10px;
+  opacity: 0; /* hidden by default */
+  transition: opacity 0.3s;
+}
+
+/* Show scrollbar on hover */
+.course-info:hover::-webkit-scrollbar-thumb {
+  opacity: 1;
+}
+
+/* Firefox scrollbar */
+.course-info {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent; /* hidden */
+}
+
+.course-info:hover {
+  scrollbar-color: #1976d2 #f1f1f1; /* visible on hover */
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .course-study-page {
+    grid-template-columns: 1fr;
+  }
+
+  .course-study-page img {
+    margin: 0 auto 1rem;
+  }
+
+  .course-study-page h5 {
+    justify-content: flex-start;
+  }
+}

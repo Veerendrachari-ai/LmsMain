@@ -1,0 +1,190 @@
+/* General card layout */
+
+.course-card {
+  width: 280px;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  position: relative;
+ .wrap-delete{
+  display: flex;
+  align-self: center;
+ }
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Course image styles */
+.course-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+/* Course info container */
+.course-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Course title and instructor styles */
+.course-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50; /* Changed from #333 */
+  margin: 0 0 4px;
+}
+
+.course-instructor {
+  font-size: 14px;
+  color: #7f8c8d; /* Changed from #666 */
+  margin: 0 0 12px;
+}
+
+/* Rating and students count */
+.course-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  color: #34495e; /* Changed from #555 */
+  margin-bottom: 16px;
+}
+
+.course-rating .star {
+  color: #f39c12; /* Changed from #ffc107 to a slightly deeper gold */
+  font-size: 16px;
+}
+
+.course-rating .students {
+  color: #95a5a6; /* Changed from #888 */
+}
+
+/* Footer with price and button */
+.course-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+.course-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #27ae60; /* Changed from #007bff (blue) to green */
+}
+
+/* Button styles */
+.btn-24 {
+  background-color: transparent;
+  color: #27ae60; /* Changed from #007bff */
+  border: 1px solid #27ae60; /* Changed from #007bff */
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s;
+  text-decoration: none; /* In case it's an <a> tag */
+  display: inline-block;
+}
+
+.btn-24:hover {
+  background-color: #27ae60; /* Changed from #007bff */
+  color: #fff;
+}
+
+.btn-24 span {
+  /* This is to style the text inside the button */
+}
+
+/* Admin delete button, not visible in the provided image but styled for completeness */
+.wrap-delete * {
+  margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+}
+.button-delete {
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+          -webkit-tap-highlight-color: 
+transparent;
+  }
+  
+  .wrap-delete button {
+      width: 150px;
+      height: 50px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      background: 
+red;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 1px 1px 3px 
+rgba(0,0,0,0.15);
+      background: 
+#e62222;
+  }
+  
+  .wrap-delete button, .wrap-delete button span {
+      transition: 200ms;
+  }
+  
+  .wrap-delete button .text {
+      transform: translateX(35px);
+      color: 
+white;
+      font-weight: bold;
+  }
+  
+  .wrap-delete button .icon {
+      position: absolute;
+      border-left: 1px solid 
+#c41b1b;
+      transform: translateX(110px);
+      height: 40px;
+      width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .wrap-delete button svg {
+      width: 15px;
+      fill: 
+#eee;
+  }
+  
+  .wrap-delete button:hover {
+      background: 
+#ff3636;
+  }
+  
+  .wrap-delete button:hover .text {
+      color: 
+transparent;
+  }
+  
+  .wrap-delete button:hover .icon {
+      width: 150px;
+      border-left: none;
+      transform: translateX(0);
+  }
+  
+  .wrap-delete button:focus {
+      outline: none;
+  }

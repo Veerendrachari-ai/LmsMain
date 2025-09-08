@@ -1,0 +1,141 @@
+/* =========================
+   Header / Navbar
+========================= */
+header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: #ffffff;
+  background: linear-gradient(135deg, #fdfdfd, #e0f2fe);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  animation: slideDown 0.7s ease;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2563eb;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* Navigation Links */
+.link {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.link a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #334155;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Hover Underline Animation */
+.link a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #2563eb;
+  transition: width 0.3s ease;
+}
+
+.link a:hover {
+  color: #2563eb;
+}
+
+.link a:hover::after {
+  width: 100%;
+}
+
+/* Welcome Message */
+.welcome-msg {
+  font-size: 0.9rem;
+  color: #475569;
+  margin-right: 1.5rem;
+  font-style: italic;
+  animation: fadeIn 1s ease;
+}
+
+/* =========================
+   Animations
+========================= */
+@keyframes slideDown {
+  from {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================
+   Responsive Navbar
+========================= */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem 1.5rem;
+  }
+
+  .link {
+    gap: 1.2rem;
+  }
+
+  .welcome-msg {
+    display: none; /* hide on small screens for cleaner look */
+  }
+}
+
+@media (max-width: 576px) {
+  .link {
+    flex-direction: column;
+    background: #ffffff;
+    background: linear-gradient(135deg, #fdfdfd, #e0f2fe);
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    padding: 1rem 0;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .link.active {
+    display: flex;
+  }
+
+  .link a {
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+  }
+}

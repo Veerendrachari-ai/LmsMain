@@ -1,0 +1,116 @@
+/* login css */
+/* Auth Page Background */
+/* Ensure number/OTP inputs are visible */
+.auth-form input[type="number"],
+.auth-form input[type="text"],
+.auth-form input[type="password"],
+.auth-form input[type="email"] {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff; /* Fix for Chrome */
+  font-size: 1rem;
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  padding: 1rem;
+}
+
+/* Auth Form Card */
+.auth-form {
+  background: rgba(15, 23, 42, 0.9); /* dark glass effect */
+  padding: 2rem 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 400px;
+  color: #fff;
+  text-align: center;
+}
+
+.auth-form h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #38bdf8;
+}
+
+/* Labels */
+.auth-form label {
+  display: block;
+  text-align: left;
+  margin: 0.8rem 0 0.3rem;
+  font-size: 0.95rem;
+  color: #cbd5e1;
+}
+
+/* Inputs */
+.auth-form input {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  background: #1e293b;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: border 0.3s ease, background 0.3s ease;
+}
+
+.auth-form input:focus {
+  border: 2px solid #38bdf8;
+  background: #0f172a;
+}
+
+/* Button */
+.common-btn-login{
+  width: 100%;
+  padding: 0.9rem;
+  background: #38bdf8;
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.common-btn:hover {
+  background: #0ea5e9;
+}
+
+/* Register Link */
+.auth-form p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.auth-form p a {
+  margin-left: 5px;
+  color: #38bdf8;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.auth-form p a:hover {
+  color: #0ea5e9;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .auth-form {
+    padding: 1.5rem;
+  }
+
+  .auth-form h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* login css end */

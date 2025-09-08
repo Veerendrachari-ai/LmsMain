@@ -1,0 +1,127 @@
+/* =========================
+   Testimonials Section
+========================= */
+.testimonials {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #fdfdfd, #e0f2fe);
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.8rem;
+  animation: fadeDown 1s ease;
+}
+
+.testimonials .subtitle {
+  font-size: 1rem;
+  color: #475569;
+  margin-bottom: 3rem;
+  animation: fadeDown 1.4s ease;
+}
+
+/* Grid Layout */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  animation: fadeUp 1.2s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: #2563eb;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+}
+
+/* Testimonial Message */
+.testimonial-card .message {
+  font-size: 1rem;
+  font-style: italic;
+  color: #334155;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Student Info */
+.student-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.student-image {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #2563eb;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover .student-image {
+  transform: rotate(-8deg) scale(1.05);
+}
+
+.name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.position {
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+/* =========================
+   Animations
+========================= */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 768px) {
+  .testimonials h2 {
+    font-size: 1.8rem;
+  }
+
+  .testimonial-card {
+    padding: 1.2rem;
+  }
+}

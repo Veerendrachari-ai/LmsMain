@@ -1,0 +1,90 @@
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 40px;
+  flex-wrap: wrap;
+  background: #f8fafc;
+}
+
+/* Circle Style */
+.stat-meter {
+  --size: 180px;
+  --value: 0;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: conic-gradient(var(--color, #6366f1) 0%, #e5e7eb 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.stat-meter:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  animation: hoverFill 1s forwards;
+}
+
+/* Animate fill on hover */
+@keyframes hoverFill {
+  from {
+    background: conic-gradient(var(--color, #6366f1) 0%, #e5e7eb 0);
+  }
+  to {
+    background: conic-gradient(var(--color, #6366f1) 100%, #e5e7eb 0);
+  }
+}
+
+/* Inner Content */
+.stat-meter .inner {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: background 0.5s ease, transform 0.3s ease;
+}
+
+/* Inner hover effect */
+.stat-meter:hover .inner {
+  background: #f0f9ff; /* light highlight color matching the ring */
+  transform: scale(1.03);
+}
+
+.stat-meter .inner span {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1e293b;
+}
+.stat-meter .inner p {
+  font-size: 0.9rem;
+  margin-top: 4px;
+  color: #6b7280;
+  transition: color 0.3s ease;
+}
+.stat-meter:hover .inner p {
+  color: #0ea5e9; /* match the outer ring color for variant 'cour' */
+}
+
+/* Icons */
+.stat-meter .icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 1.4rem;
+  color: var(--color);
+}
+
+/* Variants */
+.stat-meter.cour { --color: #0ea5e9; }
+.stat-meter.lec  { --color: #22c55e; }
+.stat-meter.usr  { --color: #a855f7; }
