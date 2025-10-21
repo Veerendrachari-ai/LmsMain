@@ -1,141 +1,138 @@
-/* =========================
-   Header / Navbar
-========================= */
-header {
-  width: 100%;
+/* ===================== Navbar ===================== */
+.udemy-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
-  left: 0;
-  background: #ffffff;
-  background: linear-gradient(135deg, #fdfdfd, #e0f2fe);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 3rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   z-index: 1000;
-  animation: slideDown 0.7s ease;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  flex-wrap: wrap;
 }
 
-/* Logo */
-.logo {
-  font-size: 1.8rem;
+/* ===================== Logo ===================== */
+.udemy-logo {
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #2563eb;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.logo:hover {
-  transform: scale(1.1);
-}
-
-/* Navigation Links */
-.link {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.link a {
+  color: #f05a28;
   text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #334155;
-  position: relative;
-  transition: color 0.3s ease;
 }
 
-/* Hover Underline Animation */
-.link a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: #2563eb;
-  transition: width 0.3s ease;
+.udemy-logo:hover {
+  opacity: 0.8;
 }
 
-.link a:hover {
-  color: #2563eb;
+/* ===================== Center ===================== */
+.udemy-navbar-center {
+  flex: 1;
+  text-align: center;
 }
 
-.link a:hover::after {
-  width: 100%;
-}
-
-/* Welcome Message */
 .welcome-msg {
   font-size: 0.9rem;
-  color: #475569;
-  margin-right: 1.5rem;
-  font-style: italic;
-  animation: fadeIn 1s ease;
+  color: #555;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* =========================
-   Animations
-========================= */
-@keyframes slideDown {
-  from {
-    transform: translateY(-80px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+/* ===================== Right Links ===================== */
+.udemy-navbar-right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.udemy-navbar-right a {
+  text-decoration: none;
+  color: #1c1c1c;
+  font-weight: 500;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
 }
 
-/* =========================
-   Responsive Navbar
-========================= */
-@media (max-width: 768px) {
-  header {
-    padding: 1rem 1.5rem;
+.udemy-navbar-right a:hover {
+  background-color: #f2f2f2;
+}
+
+/* ===================== Buttons ===================== */
+.btn-login, .btn-account {
+  background-color: #f05a28;
+  color: #fff !important;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-login:hover, .btn-account:hover {
+  background-color: #d04a20;
+}
+
+/* ===================== Responsive ===================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .udemy-navbar {
+    padding: 0.6rem 1.2rem;
   }
 
-  .link {
-    gap: 1.2rem;
+  .udemy-logo {
+    font-size: 1.4rem;
   }
 
   .welcome-msg {
-    display: none; /* hide on small screens for cleaner look */
+    font-size: 0.85rem;
   }
 }
 
-@media (max-width: 576px) {
-  .link {
+/* Mobile */
+@media (max-width: 768px) {
+  .udemy-navbar {
     flex-direction: column;
-    background: #ffffff;
-    background: linear-gradient(135deg, #fdfdfd, #e0f2fe);
-    position: absolute;
-    top: 70px;
-    right: 0;
+    align-items: flex-start;
+    padding: 0.8rem 1rem;
+    gap: 0.6rem;
+  }
+
+  .udemy-navbar-center {
     width: 100%;
-    padding: 1rem 0;
-    display: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
   }
 
-  .link.active {
-    display: flex;
+  .udemy-navbar-right {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    flex-wrap: wrap;
   }
 
-  .link a {
-    font-size: 1.1rem;
-    padding: 0.5rem 0;
+  .welcome-msg {
+    font-size: 0.85rem;
+    white-space: normal;
+    overflow: visible;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .udemy-logo {
+    font-size: 1.2rem;
+  }
+
+  .udemy-navbar-right a {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .welcome-msg {
+    font-size: 0.8rem;
   }
 }

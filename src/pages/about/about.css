@@ -5,6 +5,8 @@
   background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
   padding: 4rem 2rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  overflow: hidden;
 }
 
 .about-container {
@@ -15,6 +17,7 @@
   align-items: center;
   gap: 3rem;
   animation: fadeIn 1s ease-in-out;
+  position: relative;
 }
 
 /* Left Content */
@@ -95,14 +98,24 @@
   font-size: 1rem;
 }
 
-/* Right Image */
+/* =========================
+   Right Images
+========================= */
 .about-image img {
   width: 50%;
   border-radius: 1.2rem;
   position: absolute;
-z-index: 2;
+  z-index: 2;
   top: 40%;
   right: 4%;
+}
+
+.books-img img {
+  position: absolute;
+  height: 500px;
+  top: 75%;
+  right: 3%;
+  z-index: 1;
 }
 
 /* =========================
@@ -123,30 +136,43 @@ z-index: 2;
   to { transform: translateY(0); opacity: 1; }
 }
 
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0px); }
-}
-
 /* =========================
-   Responsive
+   Responsive Design
 ========================= */
+
+/* Tablets and smaller devices */
 @media (max-width: 992px) {
   .about-container {
     grid-template-columns: 1fr;
     text-align: center;
   }
 
-  .about-image {
-    order: -1;
+  .about-image,
+  .books-img {
+    display: none; /* 👈 Hide images on tablets */
   }
 }
-.books-img img{
-  position: absolute;
-  height: 500px;
-  top: 75%;
-  right: 3%;
 
+/* Mobile screens */
+@media (max-width: 600px) {
+  .about {
+    padding: 3rem 1rem;
+  }
 
+  .about-content h2 {
+    font-size: 2rem;
+  }
+
+  .about-content .intro {
+    font-size: 1rem;
+  }
+
+  .detail-box {
+    padding: 1.2rem;
+  }
+
+  .about-image,
+  .books-img {
+    display: none; /* 👈 Hide images on mobile */
+  }
 }

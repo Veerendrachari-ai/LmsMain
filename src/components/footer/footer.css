@@ -1,65 +1,40 @@
-/* =========================
-   Footer Styles (Wave + Animations)
-========================= */
 footer {
-  position: relative;
-  background: linear-gradient(135deg, #e0f2fe, #fdfdfd);
-  color: #0f172a;
-  padding: 5rem 2rem 1rem 2rem;
-  margin-top: 0; /* remove harsh gap */
-  border-top: 2px solid #bae6fd;
-  overflow: hidden;
+  background: #111827; /* dark blue/gray */
+  color: #f9f9f9;
+  padding: 50px 20px 20px;
+  margin-top: 40px;
+  border-radius: 16px 16px 0 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Wave Transition */
-footer::before {
-  content: "";
-  position: absolute;
-  top: -70px;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23e0f2fe' fill-opacity='1' d='M0,128L48,122.7C96,117,192,107,288,106.7C384,107,480,117,576,138.7C672,160,768,192,864,202.7C960,213,1056,203,1152,197.3C1248,192,1344,192,1392,192L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E")
-    no-repeat;
-  background-size: cover;
-  animation: waveMove 6s linear infinite;
-}
-
-/* Container Layout */
+/* ============= Footer Layout ============= */
 .footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
   max-width: 1200px;
   margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  position: relative;
-  z-index: 2;
-  animation: fadeUp 1.2s ease;
 }
 
-/* About Section */
+/* ============= About Section ============= */
 .footer-about h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #2563eb;
-  animation: fadeLeft 1.2s ease;
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #fff;
 }
 
 .footer-about p {
-  font-size: 0.95rem;
-  color: #475569;
+  font-size: 14px;
   line-height: 1.6;
-  max-width: 400px;
-  animation: fadeLeft 1.6s ease;
+  color: #d1d5db;
 }
 
-/* Quick Links */
+/* ============= Links ============= */
 .footer-links h4,
 .footer-social h4 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #0f172a;
-  animation: fadeRight 1.2s ease;
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #fff;
 }
 
 .footer-links ul {
@@ -67,57 +42,55 @@ footer::before {
   padding: 0;
 }
 
-.footer-links ul li {
-  margin-bottom: 0.6rem;
+.footer-links li {
+  margin-bottom: 10px;
 }
 
-.footer-links ul li a {
-  color: #475569;
+.footer-links a {
   text-decoration: none;
+  color: #d1d5db;
+  font-size: 14px;
   transition: color 0.3s ease;
 }
 
-.footer-links ul li a:hover {
-  color: #2563eb;
+.footer-links a:hover {
+  color: #60a5fa; /* blue hover */
 }
 
-/* Social Media */
+/* ============= Social ============= */
 .footer-social .social-links {
   display: flex;
-  gap: 1rem;
-  animation: fadeRight 1.6s ease;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .footer-social a {
-  color: #475569;
-  background: rgba(37, 99, 235, 0.08);
-  padding: 0.6rem;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  background: #1f2937;
+  padding: 10px;
+  border-radius: 50%;
+  transition: background 0.3s ease, transform 0.2s;
 }
 
 .footer-social a:hover {
   background: #2563eb;
-  color: #fff;
-  transform: translateY(-3px) scale(1.1);
+  transform: translateY(-3px);
 }
 
-/* Bottom Bar */
+/* ============= Bottom Bar ============= */
 .footer-bottom {
-  border-top: 1px solid rgba(37, 99, 235, 0.2);
-  margin-top: 2rem;
-  padding-top: 1rem;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #374151;
   text-align: center;
-  font-size: 0.9rem;
-  color: #475569;
-  animation: fadeUp 1.8s ease;
+  font-size: 13px;
+  color: #9ca3af;
 }
 
 .footer-bottom a {
-  color: #2563eb;
+  color: #60a5fa;
   text-decoration: none;
 }
 
@@ -125,60 +98,58 @@ footer::before {
   text-decoration: underline;
 }
 
-/* =========================
-   Animations
-========================= */
-@keyframes waveMove {
-  0% {
-    background-position-x: 0;
+/* ============= Responsive ============= */
+
+/* Tablets and smaller laptops */
+@media (max-width: 1024px) {
+  footer {
+    padding: 40px 15px 15px;
   }
-  100% {
-    background-position-x: 1000px;
+  .footer-about h3 {
+    font-size: 20px;
+  }
+  .footer-links h4, .footer-social h4 {
+    font-size: 16px;
   }
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* =========================
-   Responsive
-========================= */
+/* Mobiles */
 @media (max-width: 768px) {
   .footer-container {
+    grid-template-columns: 1fr;
     text-align: center;
+  }
+
+  .footer-about p {
+    max-width: 500px;
+    margin: 0 auto;
   }
 
   .footer-social .social-links {
     justify-content: center;
+  }
+
+  .footer-links ul {
+    display: inline-block;
+    text-align: left;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  footer {
+    padding: 30px 15px;
+  }
+
+  .footer-about h3 {
+    font-size: 18px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
   }
 }

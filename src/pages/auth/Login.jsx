@@ -27,6 +27,7 @@ const Login = () => {
         <div className="auth-form">
             <h2>Login</h2>
             <form onSubmit={submitHandler}>
+              
                 <label htmlFor='email' >Email</label>
                 <input type='email' value={email} onChange={(e)=>{
                   setEmail(e.target.value) }} required></input>

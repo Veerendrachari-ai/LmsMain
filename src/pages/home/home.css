@@ -1,143 +1,125 @@
-/* =========================
-   Global Reset
-========================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9fafe;
-  color: #1e293b;
-  line-height: 1.6;
-}
-
-/* =========================
-   Hero Section
-========================= */
-.hero {
-  width: 100%;
+/* ===================== Hero Section ===================== */
+.hero-section {
+  background-color: #f9f9f9;
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, #e0f2fe, #fdfdfd);
 }
 
 .hero-container {
-  max-width: 1200px;
-  height: 60dvh;
-  margin: auto;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
   gap: 2rem;
-  flex-wrap: wrap;
 }
 
-/* Left Content */
-.hero-text {
+.hero-left {
   flex: 1;
-  min-width: 300px;
 }
 
-.hero-text h1 {
+.hero-left h1 {
   font-size: 3rem;
   font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1.2rem;
-  color: #0f172a;
+  margin-bottom: 1rem;
 }
 
-.hero-text h1 span {
-  color: #2563eb;
+.hero-left h1 span {
+  color: #f05a28;
 }
 
-.hero-text p {
+.hero-left p {
   font-size: 1.1rem;
-  margin-bottom: 2rem;
-  color: #475569;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.btn-cta {
+  background-color: #f05a28;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cta:hover { background-color: #d04a20; }
+
+.hero-right {
+  flex: 1;
+}
+
+.hero-image {
+  width: 100%;
   max-width: 500px;
 }
-.img-girl{
-  position: absolute;
-  left: 50%;
-  top: 20%;
 
+/* ===================== Featured Categories ===================== */
+.featured-categories {
+  padding: 3rem 2rem;
+  text-align: center;
 }
-/* CTA Button */
-.btn-35,
-.btn-35 *,
-.btn-35 :after,
-.btn-35 :before,
-.btn-35:after,
-.btn-35:before {
-  border: 0 solid;
-  box-sizing: border-box;
+
+.featured-categories h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
 }
-.btn-35 {
-  -webkit-tap-highlight-color: 
-transparent;
-  -webkit-appearance: button;
-  background-color: 
-#000;
-  background-image: none;
-  color: 
-#fff;
-  cursor: pointer;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  font-size: 100%;
-  font-weight: 900;
-  line-height: 1.5;
-  margin: 0;
-  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
-  padding: 0;
-}
-.btn-35:disabled {
-  cursor: default;
-}
-.btn-35:-moz-focusring {
-  outline: auto;
-}
-.btn-35 svg {
-  display: block;
-  vertical-align: middle;
-}
-.btn-35 [hidden] {
-  display: none;
-}
-.btn-35 {
-  --height: 4rem;
-  border: 1px solid;
-  box-sizing: border-box;
+
+.categories-grid {
   display: grid;
-  place-items: center;
-  height: var(--height);
-  overflow: hidden;
-  padding: 0 3rem;
-  position: relative;
-  text-transform: uppercase;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
 }
-.btn-35 span {
-  font-weight: 900;
-  mix-blend-mode: difference;
+
+.category-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-.btn-35:before {
-  --middle: calc(var(--height) / 2);
-  background: 
-#fff;
-  content: "";
-  height: 100%;
-  left: calc(var(--height) * -1);
-  position: absolute;
-  top: 0;
-  transform: rotate(-90deg);
-  transform-origin: var(--middle) var(--middle);
-  transition: transform 0.3s;
-  width: calc(100% + var(--height));
-  z-index: -1;
+
+.category-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
 }
-.btn-35:hover:before {
-  transform: rotate(0deg);
+
+.category-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* ===================== Testimonials ===================== */
+.home-testimonials {
+  padding: 3rem 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.home-testimonials h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* ===================== Responsive ===================== */
+@media(max-width: 900px) {
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero-left h1 { font-size: 2rem; }
+  .hero-left p { font-size: 1rem; }
+
+  .categories-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
 }

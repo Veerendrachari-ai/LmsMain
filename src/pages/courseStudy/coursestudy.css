@@ -1,146 +1,254 @@
-.course-study-page {
-  max-width: 1100px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  font-family: "Poppins", sans-serif;
-  color: #333;
+/* ===================== Page Layout ===================== */
+.udemy-course-page {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f7f7;
+  color: #1c1c1c;
+  padding: 2rem 1rem;
+}
 
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+.udemy-course-content-wrapper {
+  display: flex;
   gap: 2rem;
-  align-items: start;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
 }
 
-/* Left Section */
-.course-study-page img {
+.udemy-course-main {
+  flex: 3;
+  min-width: 300px;
+}
+
+.udemy-course-sidebar {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* ===================== Header ===================== */
+.udemy-course-header {
+  position: relative;
   width: 100%;
-  max-width: 450px;
+  height: 320px;
+  overflow: hidden;
+  margin-bottom: 2rem;
   border-radius: 10px;
+}
+
+.udemy-course-header-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.udemy-course-header-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  padding: 0 1rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.udemy-course-header-overlay h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+}
+
+.udemy-course-badges {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+.badge {
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.badge.instructor { background-color: #6c63ff; }
+.badge.duration { background-color: #ff6f61; }
+.badge.students { background-color: #4caf50; }
+
+/* ===================== Main Content ===================== */
+.udemy-course-description,
+.udemy-course-syllabus {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.udemy-course-description h2,
+.udemy-course-syllabus h2 {
   margin-bottom: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1.3rem;
 }
 
-.course-study-page h2 {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 0.8rem;
-  color: #222;
-}
-
-.course-study-page h4 {
+.udemy-course-description p {
   font-size: 1rem;
-  color: #555;
-  margin-bottom: 1rem;
   line-height: 1.6;
+  color: #444;
 }
 
-.course-study-page a {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.8rem 1.6rem;
-  background: #1976d2;
+.udemy-lecture-item {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ===================== Sidebar ===================== */
+.sidebar-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.sidebar-course-img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.sidebar-info p {
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+  text-align: left;
+}
+
+.btn-start-learning {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 0;
+  background-color: #f05a28;
   color: #fff;
   border-radius: 6px;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: background 0.3s ease-in-out;
-}
-
-.course-study-page a:hover {
-  background: #125aa0;
-}
-
-/* Sidebar Section */
-.course-study-page h5 {
-  background: #f9f9f9;
-  padding: 0.8rem 1rem;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  color: #444;
-  margin-bottom: 0.8rem;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.course-study-page h5 span {
   font-weight: 600;
-  color: #222;
+  margin-top: 1rem;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
 }
 
-/* Icons for "By-" and "Duration-" */
-.course-study-page h5:nth-of-type(1)::before {
-  content: "👤";
-  font-size: 1rem;
-  color: #1976d2;
+.btn-start-learning:hover {
+  background-color: #d04a20;
+  transform: translateY(-2px);
 }
 
-.course-study-page h5:nth-of-type(2)::before {
-  content: "⏱️";
-  font-size: 1rem;
-  color: #1976d2;
+/* ===================== Loading ===================== */
+.loading {
+  text-align: center;
+  padding: 4rem 0;
+  font-size: 1.2rem;
+  color: #666;
 }
 
-/* Course Info Scrollable Section */
-.course-info {
-  max-height: 250px;       /* adjust as needed */
-  overflow-y: auto;
-  padding-right: 0.8rem;
-  line-height: 1.6;
-  color: #444;
-  position: relative;
-}
+/* ===================== Responsive ===================== */
 
-/* Hide scrollbar by default */
-.course-info::-webkit-scrollbar {
-  width: 8px;
-}
-
-.course-info::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.course-info::-webkit-scrollbar-thumb {
-  background: #1976d2;
-  border-radius: 10px;
-  opacity: 0; /* hidden by default */
-  transition: opacity 0.3s;
-}
-
-/* Show scrollbar on hover */
-.course-info:hover::-webkit-scrollbar-thumb {
-  opacity: 1;
-}
-
-/* Firefox scrollbar */
-.course-info {
-  scrollbar-width: thin;
-  scrollbar-color: transparent transparent; /* hidden */
-}
-
-.course-info:hover {
-  scrollbar-color: #1976d2 #f1f1f1; /* visible on hover */
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .course-study-page {
-    grid-template-columns: 1fr;
+/* Tablets (below 1024px) */
+@media (max-width: 1024px) {
+  .udemy-course-content-wrapper {
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
-  .course-study-page img {
-    margin: 0 auto 1rem;
+  .udemy-course-main,
+  .udemy-course-sidebar {
+    width: 100%;
   }
 
-  .course-study-page h5 {
-    justify-content: flex-start;
+  .udemy-course-header {
+    height: 260px;
+  }
+
+  .udemy-course-header-overlay h1 {
+    font-size: 1.9rem;
+  }
+
+  .sidebar-card {
+    padding: 1.2rem;
+  }
+}
+
+/* Mobile Landscape (below 768px) */
+@media (max-width: 768px) {
+  .udemy-course-header {
+    height: 220px;
+  }
+
+  .udemy-course-header-overlay h1 {
+    font-size: 1.6rem;
+  }
+
+  .udemy-course-badges {
+    font-size: 0.8rem;
+  }
+
+  .udemy-course-description,
+  .udemy-course-syllabus {
+    padding: 1.2rem;
+  }
+
+  .udemy-course-description h2,
+  .udemy-course-syllabus h2 {
+    font-size: 1.1rem;
+  }
+
+  .sidebar-info p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Portrait (below 480px) */
+@media (max-width: 480px) {
+  .udemy-course-page {
+    padding: 1.2rem 0.6rem;
+  }
+
+  .udemy-course-header {
+    height: 180px;
+    border-radius: 0;
+  }
+
+  .udemy-course-header-overlay h1 {
+    font-size: 1.3rem;
+    line-height: 1.4;
+  }
+
+  .udemy-course-badges {
+    gap: 0.4rem;
+  }
+
+  .badge {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .udemy-course-description,
+  .udemy-course-syllabus {
+    padding: 1rem;
+  }
+
+  .udemy-lecture-item {
+    font-size: 0.9rem;
+  }
+
+  .btn-start-learning {
+    font-size: 0.9rem;
+    padding: 0.6rem;
   }
 }

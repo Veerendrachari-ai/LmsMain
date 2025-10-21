@@ -1,232 +1,130 @@
-.account {
+/* ===================== Page Layout ===================== */
+.udemy-account-page {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4rem 2rem;
-  background-color: #f8fafc; /* A slightly softer off-white background */
-  min-height: 100vh;
-  color: #334155; /* Default dark text color */
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.profile-card {
-  background: #ffffff; /* Changed to solid white */
-  padding: 2rem;
-  border-radius: 1rem;
-  width: 100%;
-  max-width: 700px;
-  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.08); /* Softer shadow for light theme */
-  border: 1px solid #e5e7eb; /* Subtle border */
-}
-
-.profile-header {
+/* ===================== Profile Header ===================== */
+.profile-banner {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.profile-avatar-container {
+  flex-shrink: 0;
 }
 
 .profile-avatar {
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  border: 3px solid #3b82f6; /* A slightly deeper blue for better contrast */
   object-fit: cover;
+}
+
+.profile-info {
+  flex: 1;
 }
 
 .profile-name {
   font-size: 1.8rem;
-  font-weight: 700;
-  color: #111827; /* Changed to dark text */
+  margin: 0;
 }
 
 .profile-email {
-  font-size: 1rem;
-  color: #6b7280; /* Changed to a softer gray */
+  color: #555;
+  margin: 0.2rem 0 0.5rem;
 }
 
 .profile-role {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  padding: 0.3rem 0.8rem;
-  background: #eff6ff; /* Light blue background */
-  color: #2563eb; /* Dark blue text */
-  border-radius: 1rem;
-  font-weight: 600;
-  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 500;
+  color: #f05a28;
 }
 
-.profile-stats {
+.btn-logout {
+  background-color: #f05a28;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-logout:hover { background-color: #d04a20; }
+
+/* ===================== Stats Section ===================== */
+.profile-stats-container {
   display: flex;
-  justify-content: space-around;
-  margin: 2rem 0;
+  gap: 1rem;
   flex-wrap: wrap;
-  gap: 1.5rem;
 }
 
 .stat-box {
-  background: #ffffff;
-  border: 1px solid #e2e8f0; /* Added border instead of transparent bg */
-  padding: 1.2rem;
-  border-radius: 0.8rem;
+  flex: 1;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
   text-align: center;
-  width: 150px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.stat-box:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
 }
 
 .stat-icon {
-  font-size: 1.8rem;
-  color: #3b82f6;
+  font-size: 2rem;
+  color: #f05a28;
   margin-bottom: 0.5rem;
 }
 
 .stat-box h3 {
-  font-size: 1.5rem;
-  color: #111827; /* Changed to dark text */
-  margin-bottom: 0.3rem;
+  margin: 0.5rem 0;
+  font-size: 1.3rem;
 }
 
 .stat-box p {
-  font-size: 0.9rem;
-  color: #6b7280; /* Changed to softer gray */
+  color: #555;
+  margin: 0;
 }
 
+/* ===================== Actions Section ===================== */
 .profile-actions {
-  text-align: center;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-/* Updated main button style */
-.common-btn {
-  background: #3b82f6;
-  color: #ffffff; /* White text on blue background */
-  padding: 0.7rem 1.4rem;
-  font-size: 1rem;
+.btn-action {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
   border: none;
-  border-radius: 0.6rem;
-  cursor: pointer;
+  border-radius: 6px;
   font-weight: 600;
-  display: inline-flex;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
   align-items: center;
   gap: 0.5rem;
-  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.common-btn:hover {
-  transform: scale(1.05);
-  background: #2563eb; /* Darker blue on hover */
-}
+.btn-action:hover { background-color: #43a047; }
 
-.profile-nav {
-  margin-top: 2rem;
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-}
-
-.nav-icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #6b7280; /* Softer gray for inactive icons */
-  font-size: 0.9rem;
-  text-decoration: none;
-  transition: transform 0.2s ease, color 0.3s ease;
-}
-
-.nav-icon:hover {
-  transform: translateY(-4px);
-  color: #3b82f6; /* Blue on hover */
-}
-
-.nav-icon span {
-  margin-top: 0.4rem;
-}
-
-/* --- Dashboard button updated for light theme --- */
-.btn-15,
-.btn-15 *,
-.btn-15 :after,
-.btn-15 :before,
-.btn-15:after,
-.btn-15:before {
-  border: 0 solid;
-  box-sizing: border-box;
-}
-.btn-15 {
-  -webkit-tap-highlight-color: 
-transparent;
-  -webkit-appearance: button;
-  background-color: 
-#000;
-  background-image: none;
-  color: 
-#fff;
-  cursor: pointer;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  font-size: 100%;
-  font-weight: 900;
-  line-height: 1.5;
-  margin: 0;
-  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
-  padding: 0;
-  text-transform: uppercase;
-}
-.btn-15:disabled {
-  cursor: default;
-}
-.btn-15:-moz-focusring {
-  outline: auto;
-}
-.btn-15 svg {
-  display: block;
-  vertical-align: middle;
-}
-.btn-15 [hidden] {
-  display: none;
-}
-.btn-15 {
-  border-radius: 99rem;
-  border-width: 2px;
-  overflow: hidden;
-  padding: 0.8rem 3rem;
-  position: relative;
-  z-index: 0;
-}
-.btn-15 span {
-  mix-blend-mode: difference;
-}
-.btn-15:after,
-.btn-15:before {
-  --skew: 0.2;
-  background: 
-#fff;
-  content: "";
-  display: block;
-  height: 102%;
-  left: calc(-50% - 50% * var(--skew));
-  pointer-events: none;
-  position: absolute;
-  top: -104%;
-  transform: skew(calc(150deg * var(--skew))) translateY(var(--progress, 0));
-  transition: transform 0.2s ease;
-  width: 100%;
-}
-.btn-15:after {
-  --progress: 0%;
-  left: calc(50% + 50% * var(--skew));
-  top: 102%;
-  z-index: -1;
-}
-.btn-15:hover:before {
-  --progress: 100%;
-}
-.btn-15:hover:after {
-  --progress: -102%;
+/* ===================== Responsive ===================== */
+@media (max-width: 900px) {
+  .profile-banner { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .profile-actions { flex-direction: column; width: 100%; }
+  .btn-action { width: 100%; justify-content: center; }
 }

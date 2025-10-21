@@ -1,148 +1,237 @@
-/* General Body & Font Styles */
-body {
-  background-color: #f8f9fa; /* Light gray background to match the reference */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
-  margin: 0;
-  padding: 2rem 1rem;
-}
-
-/* Main Container - Styled as a single large card */
-.course-description-1 {
-  max-width: 900px;
+/* ===================== Page Layout ===================== */
+.course-page-modern {
+  max-width: 1100px;
   margin: auto;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Clips the child elements to the rounded corners */
-}
-
-/* Header section containing the image and info */
-.course-header-1 {
-  position: relative; /* Allows positioning of child elements relative to this container */
-  height: 350px;
-  color: white;
-}
-
-.course-image-1 {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures the image covers the area without distortion */
-}
-
-/* Info box overlaid on the image */
-.course-info-1 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   padding: 2rem;
-  box-sizing: border-box;
-  /* Gradient overlay for text readability */
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.8) 100%
-  );
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f8fa;
+  color: #1c1c1c;
 }
 
-.course-info-1 h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0 0 0.5rem 0;
+.course-card-modern {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  padding: 2rem;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.course-info-1 p {
-  margin: 0.25rem 0;
+.course-card-modern:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* ===================== Top Section ===================== */
+.course-top-modern {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.course-image-modern {
+  width: 380px;
+  max-width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+.course-info-modern {
+  flex: 1;
+  min-width: 250px;
+}
+
+.course-title-modern {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.course-instructor-modern {
   font-size: 0.95rem;
-  opacity: 0.9;
+  color: #555;
+  margin-bottom: 0.5rem;
 }
 
-/* Description section, styled to look like "Course Overview" */
-.descript-1 {
-  padding: 2rem;
-  color: #374151;
+.course-badges-modern {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 
-/* Adds the "Course Overview" title before the description text */
-.descript-1::before {
-  content: "Course Overview";
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 0.75rem;
+.badge-modern {
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background-color: #e2e8f0;
+  color: #1c1c1c;
 }
 
-.descript-1 p {
+.badge-modern.duration {
+  background-color: #d0ebff;
+}
+
+.badge-modern.level {
+  background-color: #ffe5d9;
+}
+
+/* ===================== Description ===================== */
+.course-description-modern {
+  font-size: 1rem;
+  color: #555;
+  margin: 1rem 0 1.5rem;
   line-height: 1.6;
-  margin: 0;
 }
 
-/* Hides the original price text to avoid redundancy with the button */
-.price {
-  display: none;
+/* ===================== Enroll Section ===================== */
+.course-enroll-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
 }
 
-/* Styling for both action buttons */
-.common-btn-1,
-.btn-97 {
-  display: block;
-  width: calc(100% - 4rem); /* Full width minus padding */
-  margin: 0 2rem 2rem 2rem;
-  padding: 1rem;
-  border: none;
-  border-radius: 8px;
+.course-price-modern {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.course-price-modern span {
+  color: #e63946;
+}
+
+.btn-modern {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  height: 50px;
   font-size: 1rem;
   font-weight: 600;
+  background-color: #0072ce;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  text-align: center;
-  transition: background-color 0.2s ease-in-out, transform 0.2s ease;
+  transition: all 0.3s;
+  min-width: 180px;
 }
 
-.common-btn-1:hover,
-.btn-97:hover {
+.btn-modern:hover {
+  background-color: #005ea3;
   transform: translateY(-2px);
 }
 
-/* Specific styling for the "Buy Now" button */
-.common-btn-1 {
-  background-color: #4f46e5;
-  color: white;
-}
-.common-btn-1:hover {
-  background-color: #4338ca;
+/* ===================== Syllabus Preview ===================== */
+.course-syllabus-modern {
+  margin-top: 2rem;
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
 }
 
-/* Specific styling for the "Study" button */
-.btn-97 {
-  background-color: #10b981; /* A green color to indicate access */
-  color: white;
-}
-.btn-97:hover {
-  background-color: #059669;
+.course-syllabus-modern h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
 }
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 600px) {
-  body {
-    padding: 1rem 0.5rem;
-  }
-  .course-header-1 {
-    height: 250px;
-  }
-  .course-info-1 {
+.lecture-preview-modern {
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.progress-bar-modern {
+  background-color: #e2e8f0;
+  border-radius: 4px;
+  height: 6px;
+  width: 100%;
+}
+
+.progress-modern {
+  height: 6px;
+  background-color: #0072ce;
+  border-radius: 4px;
+  width: 0%;
+}
+
+/* ===================== Loading ===================== */
+.loading {
+  text-align: center;
+  padding: 4rem 0;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* ===================== Responsive ===================== */
+
+/* Tablets and smaller laptops */
+@media (max-width: 1024px) {
+  .course-page-modern {
     padding: 1.5rem;
   }
-  .course-info-1 h2 {
-    font-size: 2rem;
+
+  .course-title-modern {
+    font-size: 1.8rem;
   }
-  .descript-1 {
-    padding: 1.5rem;
+
+  .course-image-modern {
+    width: 100%;
+    height: auto;
   }
-  .common-btn-1,
-  .btn-97 {
-    width: calc(100% - 3rem);
-    margin: 0 1.5rem 1.5rem 1.5rem;
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+  .course-top-modern {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .course-info-modern {
+    width: 100%;
+  }
+
+  .course-enroll-section {
+    flex-direction: column;
+  }
+
+  .btn-modern {
+    width: 100%;
+  }
+
+  .course-description-modern {
+    text-align: justify;
+  }
+
+  .course-syllabus-modern {
+    text-align: left;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .course-title-modern {
+    font-size: 1.5rem;
+  }
+
+  .course-price-modern {
+    font-size: 1rem;
+  }
+
+  .btn-modern {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .course-syllabus-modern h2 {
+    font-size: 1.1rem;
   }
 }

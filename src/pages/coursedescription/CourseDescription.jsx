@@ -5,23 +5,18 @@ import { CourseData } from "../../context/CourseContext";
 import { server } from "../../main";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { UserData } from "../../context/UserContext";
 import Loading from "../../components/loading/Loading";
 
 const CourseDescription = ({ user }) => {
   const params = useParams();
   const navigate = useNavigate();
-
   const [loading, setLoading] = useState(false);
 
-  const { fetchUser } = UserData();
-
-  const { fetchCourse, course, fetchCourses, fetchMyCourse } = CourseData();
+  const { fetchCourse, course } = CourseData();
 
   useEffect(() => {
     fetchCourse(params.id);
-    
-  }, []);
+  }, [params.id, fetchCourse]);
 
   const checkoutHandler = async () => {
     try {
@@ -29,17 +24,16 @@ const CourseDescription = ({ user }) => {
       setLoading(true);
 
       const { data } = await axios.post(
-  `${server}/api/course/${params.id}/checkout`,
-  {},
-  { headers: { token } }
-);
-
+        `${server}/api/course/${params.id}/checkout`,
+        {},
+        { headers: { token } }
+      );
 
       if (data.url) {
-        // Redirect user to Stripe Checkout
         window.location.href = data.url;
       } else {
         toast.error("Unable to start payment");
+        setLoading(false);
       }
     } catch (error) {
       toast.error(error.response?.data?.message || "Checkout failed");
@@ -47,55 +41,73 @@ const CourseDescription = ({ user }) => {
     }
   };
 
-
+  if (loading) return <Loading />;
+  if (!course) return <div className="loading">Loading Course...</div>;
 
   return (
-    <>
-      {loading ? (
-        <Loading />
-      ) : (
-        <>
-          {course && (
-            <div className="course-description-1">
-              <div className="course-header-1">
-                <img
-                  src={`${server}/${course.image}`}
-                  alt=""
-                  className="course-image-1"
-                />
-                <div className="course-info-1">
-                  <h2>{course.title}</h2>
-                  <p className="createdby">Instructor: {course.createdBy}</p>
-                  <p>Duration: {course.duration} weeks</p>
-                </div>
-              </div>
-              <div className="descript-1">
+    <div className="course-page-modern">
+      <div className="course-card-modern">
+        <div className="course-top-modern">
+          <img
+            src={`${server}/${course.image}`}
+            alt={course.title}
+            className="course-image-modern"
+          />
+          <div className="course-info-modern">
+            <h1 className="course-title-modern">{course.title}</h1>
+            <p className="course-instructor-modern">By {course.createdBy}</p>
+            <div className="course-badges-modern">
+              <span className="badge-modern duration">
+                {course.duration} Week{course.duration > 1 ? "s" : ""}
+              </span>
+              {course.level && (
+                <span className="badge-modern level">{course.level}</span>
+              )}
+            </div>
+            <p className="course-description-modern">{course.description}</p>
 
-              <p>{course.description}</p>
-              </div>
-
-<p className="price">
-  Let's get started with course at ₹{" "}
-  <span style={{ color: "red" }}>{course.price}</span>
-</p>
-
+            <div className="course-enroll-section">
+              <p className="course-price-modern">
+                ₹<span>{course.price}</span>
+              </p>
               {user && user.subscriptions.includes(course._id) ? (
                 <button
                   onClick={() => navigate(`/course/study/${course._id}`)}
-                  className="btn-97"
+                  className="btn-modern"
                 >
-                  Study
+                  Go to Course
                 </button>
               ) : (
-                <button onClick={checkoutHandler} className="common-btn-1">
-                  Buy Now
+                <button onClick={checkoutHandler} className="btn-modern">
+                  Enroll Now
                 </button>
               )}
             </div>
-          )}
-        </>
-      )}
-    </>
+          </div>
+        </div>
+
+        {/* Course Syllabus Preview */}
+        {course.lectures?.length > 0 && (
+          <div className="course-syllabus-modern">
+            <h2>Course Content</h2>
+            {course.lectures.slice(0, 5).map((lec, idx) => (
+              <div key={idx} className="lecture-preview-modern">
+                <span>{idx + 1}.</span> {lec.title}
+                <div className="progress-bar-modern">
+                  <div
+                    className="progress-modern"
+                    style={{ width: "0%" }}
+                  ></div>
+                </div>
+              </div>
+            ))}
+            {course.lectures.length > 5 && (
+              <p>+ {course.lectures.length - 5} more lectures</p>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 

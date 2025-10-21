@@ -1,111 +1,72 @@
 import React from "react";
 import "./courseCard.css";
-import { server } from "../../main";
 import { FaStar } from "react-icons/fa";
-import { UserData } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
 import axios from "axios";
+import toast from "react-hot-toast";
+import { UserData } from "../../context/UserContext";
 import { CourseData } from "../../context/CourseContext";
+import { server } from "../../main";
 
 const CourseCard = ({ course }) => {
   const { user, isAuth } = UserData();
+  const { fetchCourses } = CourseData();
   const navigate = useNavigate();
-  const {fetchCourses}=CourseData()
 
-  const rating = 4.5;
-  const students =  1234;
+  const rating = 4.8;
+  const  students =0;
 
-const deleteHandler=async(id)=>{
-if(confirm("Really Want to Delete😱😱")){
+  const deleteHandler = async (id) => {
+    if (!window.confirm("Delete this course permanently?")) return;
     try {
-    const {data}=await axios.delete(`${server}/api/course/${id}`,{
-      headers:{
-        token:localStorage.getItem("token"),
+      const { data } = await axios.delete(`${server}/api/course/${id}`, {
+        headers: { token: localStorage.getItem("token") },
+      });
+      toast.success(data.message);
+      fetchCourses();
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Error deleting course");
+    }
+  };
 
-      }
-    })
-    toast.success(data.message)
-    fetchCourses()
-    
-  } catch (error) {
-    toast.error(error.response.data.message)
-    
-  }
-
-
-}
-}
-
+  const handleView = () => {
+    if (!isAuth) return navigate("/login");
+    if (user?.role === "admin") return navigate(`/course/study/${course._id}`);
+    if (user?.subscriptions.includes(course._id))
+      return navigate(`/course/study/${course._id}`);
+    navigate(`/course/${course._id}`);
+  };
 
   return (
-    <div className="course-card">
-      {/* Course Thumbnail */}
-      <img
-        src={`${server}/${course.image}`}
-        alt={course.title}
-        className="course-image"
-      />
+    <div className="pro-course-card">
+      <div className="card-thumb">
+        <img src={`${server}/${course.image}`} alt={course.title} />
+        {user?.role === "admin" && (
+          <button className="delete-floating" onClick={() => deleteHandler(course._id)}>
+            <span>✖</span>
+          </button>
+        )}
+      </div>
 
-      {/* Course Details */}
-      <div className="course-info">
-        <h3 className="course-title">{course.title}</h3>
+      <div className="card-body">
+        <h3 className="title">{course.title}</h3>
+        <p className="instructor">By {course.createdBy}</p>
 
-        <p className="course-instructor">{course.createdBy}</p>
-
-        {/* Rating + Students */}
-        <div className="course-rating">
+        <div className="rating-row">
           <FaStar className="star" />
-          <span>{rating.toFixed(1)}</span>
+          <span>{rating}</span>
           <span className="students">({students.toLocaleString()})</span>
         </div>
 
-        {/* Price + Button */}
-        <div className="course-footer">
-          <span className="course-price">
+        <div className="bottom-row">
+          <p className="price">
             {course.price === 0 ? "Free" : `₹${course.price}`}
-          </span>
-
-          {isAuth ? (
-            <>
-              {user && user.role !== "admin" ? (
-                <>
-                  {user.subscriptions.includes(course._id) ? (
-                    <button
-                      onClick={() => navigate(`/course/study/${course._id}`)}
-                      className="btn-24"
-                    >
-                      <span>View Details</span>
-                    </button>
-                  ) : (
-                    <button
-                      onClick={() => navigate(`/course/${course._id}`)}
-                      className="btn-24"
-                    >
-                      <span>View Details</span>
-                    </button>
-                  )}
-                </>
-              ) : (
-                <button
-                  onClick={() => navigate(`/course/study/${course._id}`)}
-                  className="common-btn-1"
-                >
-                  View Details
-                </button>
-              )}
-            </>
-          ) : (
-            <button onClick={() => navigate("/login")} className="btn-24">
-              <span>View Details</span>
-            </button>
-          )}
+          </p>
+          <button onClick={handleView} className="btn-modern">
+            View Details
+          </button>
         </div>
       </div>
-
-      {/* Admin Delete Button */}
-      {user && user.role === "admin" && (
-<div class="wrap-delete"><button onClick={()=>deleteHandler(course._id)} class="button-delete"><span class='text'>Delete</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg></span></button></div>      )}
     </div>
   );
 };
