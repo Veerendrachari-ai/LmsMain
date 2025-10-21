@@ -13,7 +13,7 @@ import { UserData } from './context/UserContext.jsx';
 import Loading from './components/loading/Loading.jsx';
 import Courses from './pages/courses/Courses.jsx';
 import CourseDescription from './pages/coursedescription/CourseDescription.jsx';
-import PaymentSuccess from './pages/paymentsucess/PaymentSucess.jsx';
+import PaymentSuccess from './pages/paymentsuccess/PaymentSuccess.jsx';
 import Dashboard from './pages/dashboard/Dashboard.jsx';
 import CourseStudy from './pages/courseStudy/CourseStudy.jsx';
 import Lecture from './pages/lecture/Lecture.jsx';
