@@ -5,8 +5,7 @@ import { server } from "../../main";
 import { UserData } from "../../context/UserContext";
 import Loading from "../../components/loading/Loading";
 import toast from "react-hot-toast";
-import "./paymentSuccess.css";
-
+import './paymentSuccess.css';
 const PaymentSuccess = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
