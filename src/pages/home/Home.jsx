@@ -21,7 +21,7 @@ const Home = () => {
       <section className="hero-section">
         <div className="hero-container">
           <div className="hero-left">
-            <h1>Learn Anything, Anytime on <span>E-Vidya</span></h1>
+            <h1 className='flame'>Learn Anything, Anytime on <span><img src="/about.png" alt="" srcset=""  className='home'/></span></h1>
             <p>
               Access top instructors, interactive courses, and track your progress 
               to achieve your learning goals. Education redefined for the digital age.

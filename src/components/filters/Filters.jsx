@@ -24,8 +24,12 @@ const Filters = ({ onFilterChange }) => {
         <h4>Category</h4>
         <select name="category" onChange={handleChange}>
           <option value="">All</option>
-          <option value="workshops">Workshops</option>
-          <option value="courses">Course</option>
+          <option value="Web Development">Web Development</option>
+          <option value="App Development">App Development</option>
+           <option value="Game Development">Game Development</option>
+          <option value="Data Science">Data Science</option> 
+          <option value="Data Analytics">Data Analytics</option>
+          <option value="Artifical Intelligence">Artifical Intelligence</option>
         </select>
       </div>
 

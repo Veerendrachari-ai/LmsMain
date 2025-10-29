@@ -7,7 +7,7 @@ const About = () => {
       <div className="about-container">
         {/* Left Side: Content */}
         <div className="about-content">
-          <h2>About <span>E-Vidya Platform</span></h2>
+          <h2>About <span><img src="/about.png" alt="" srcset="" className='aboutlogo' /></span></h2>
           <p className="intro">
             Our Learning Management System (LMS) is designed to make education accessible, 
             engaging, and effective. Whether you’re a student, educator, or professional, 
@@ -47,9 +47,7 @@ const About = () => {
         <div className="about-image">
           <img src="/About-page.png" alt="E-learning Illustration" />
         </div>
-        <div className="books-img">
-          <img src="/books.png" alt="" srcset="" />
-        </div>
+ 
       </div>
     </section>
   )

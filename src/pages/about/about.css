@@ -8,7 +8,12 @@
   position: relative;
   overflow: hidden;
 }
+.aboutlogo{
+  width: 250px;
+  height: 75px;
 
+  
+}
 .about-container {
   max-width: 1200px;
   margin: 0 auto;

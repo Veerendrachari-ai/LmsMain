@@ -9,7 +9,7 @@ const Footer = () => {
 
         {/* About Section */}
         <div className="footer-about">
-          <h3>Vidya Platform</h3>
+          <h3>JnanaDeepa Platform</h3>
           <p>
             Empowering students with quality education, interactive learning, and expert mentorship.
             Join us to unlock your potential and achieve your academic goals.
@@ -41,7 +41,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="footer-bottom">
-        <p>&copy; 2K25 Vidya Platform | All Rights Reserved</p>
+        <p>&copy; 2K25 JnanaDeepa Platform | All Rights Reserved</p>
         <p>Made with ❤️ by <a href="#">Veerendrachari</a></p>
       </div>
     </footer>

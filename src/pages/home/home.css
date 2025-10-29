@@ -3,7 +3,25 @@
   background-color: #f9f9f9;
   padding: 4rem 2rem;
 }
-
+.home{
+  height: 60px;
+  width: 180px;
+}
+.flame{
+   background: linear-gradient(
+    to right,
+    #ff0000,#fdcf58
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+animation: hi 5s infinite;  
+}
+@keyframes hi {
+  to{
+    background-position:550px;
+  }
+  
+}
 .hero-container {
   display: flex;
   justify-content: space-between;

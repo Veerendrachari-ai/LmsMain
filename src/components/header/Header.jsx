@@ -20,7 +20,8 @@ const Header = ({ isAuth, user }) => {
   return (
     <header className="udemy-navbar">
       <div className="udemy-navbar-left">
-        <Link to="/" className="udemy-logo">E-Vidya</Link>
+        <Link to="/" className="udemy-logo"><img src="/Logo.png" alt="E-Learning" className="logo"/>
+</Link>
       </div>
 
       <div className="udemy-navbar-center">
